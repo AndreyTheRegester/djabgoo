@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'killomif.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-if "DATABASE_URL" in os.environ:
+if "DATABASE_URL" in os.environ and os.environ["DATABASE_URL"].startswith("postgres"):
     DATABASES = {
         "default": dj_database_url.parse(os.environ["DATABASE_URL"])
     }
